@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: axion-database-schema
+  namespace: axion
+  labels:
+    app: axion-database-schema
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: axion-database-schema
+  template:
+    metadata:
+      labels:
+        app: axion-database-schema
+    spec:
+      containers:
+        - name: axion-database-schema
+          image: mydemoregistry123.azurecr.io/axion-database-schema:latest
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "64Mi"
+            limits:
+              cpu: "250m"
+              memory: "256Mi"

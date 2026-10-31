@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: axion-ui
+  namespace: axion
+  labels:
+    app: axion-ui
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: axion-ui
+  template:
+    metadata:
+      labels:
+        app: axion-ui
+    spec:
+      containers:
+        - name: axion-ui
+          image: mydemoregistry123.azurecr.io/axion-ui:latest
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: axion-ui-service
+  namespace: axion
+spec:
+  type: ClusterIP
+  selector:
+    app: axion-ui
+  ports:
+    - name: http
+      port: 80
+      targetPort: 3000

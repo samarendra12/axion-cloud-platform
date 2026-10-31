@@ -1,0 +1,91 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: axion-ui
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/samarendra12/axion-cloud-platform.git'
+    targetRevision: HEAD
+    path: 'k8s/axion-ui'
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: axion
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: axion-data-simulator
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/samarendra12/axion-cloud-platform.git'
+    targetRevision: HEAD
+    path: 'k8s/axion-data-simulator'
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: axion
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: axion-ingestion-service
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/samarendra12/axion-cloud-platform.git'
+    targetRevision: HEAD
+    path: 'k8s/axion-ingestion-service'
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: axion
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: axion-database-schema
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/samarendra12/axion-cloud-platform.git'
+    targetRevision: HEAD
+    path: 'k8s/axion-database-schema'
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: axion
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
