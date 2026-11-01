@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: axion-ingestion
+spec:
+  selector:
+    matchLabels:
+      app: axion-ingestion
+  template:
+    metadata:
+      labels:
+        app: axion-ingestion
+    spec:
+      containers:
+      - name: axion-ingestion
+        image: samaridhi1234.azurecr.io/axion-ingestion:v2
+        # imagePullPolicy: Never # ye policy tab lagate hai jab hame image private registry image pull nahi krna hota hai
+       
+        ports:
+        - containerPort: 8000
+        env:
+        - name: DATABASE_URL
+          value: "postgresql://adminuser:Shivansh%40123@axion-pg-db-2026-sam.postgres.database.azure.com:5432/axion-db"
