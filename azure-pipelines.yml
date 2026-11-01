@@ -1,0 +1,22 @@
+
+trigger: none
+pool: super-hero
+stages:
+  - stage: imagebuidpush
+    displayName: image build and push
+    jobs:
+      - job: imagebuildpush
+        displayName: image building and pushing
+        steps:
+          - 
+          - task: Docker@2
+            inputs:
+              containerRegistry: 'acr-service-connection'
+              repository: 'axion-ingestion'
+              command: 'buildAndPush'
+              Dockerfile: 'axion-ingestion-service/Dockerfile'
+              buildContext: 'axion-ingestion-service'
+              tags: |
+                $(Build.BuildId)
+                latest
+  
