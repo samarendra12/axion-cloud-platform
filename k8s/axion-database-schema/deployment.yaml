@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: axion-database-schema
-          image: mydemoregistry123.azurecr.io/axion-database-schema:latest
+          image: samaridhi1234.azurecr.io/axion-database-schema:latest
           resources:
             requests:
               cpu: "50m"

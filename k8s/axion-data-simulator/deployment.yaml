@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: axion-data-simulator
-          image: mydemoregistry123.azurecr.io/axion-data-simulator:latest
+          image: samaridhi1234.azurecr.io/axion-data-simulator:latest
           resources:
             requests:
               cpu: "50m"

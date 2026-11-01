@@ -16,8 +16,8 @@ pool:
 variables:
   # ⚠️ ADO Service Connection ka naam jo aap Project Settings -> Service connections me banayenge
   dockerRegistryServiceConnection: 'acr-service-connection'
-  # ⚠️ Aapka Azure Container Registry login server (lowercase me)
-  containerRegistry: 'mydemoregistry123.azurecr.io'
+  # ⚠️ Aapka Azure Container Registry login server
+  containerRegistry: 'samaridhi1234.azurecr.io'
   tag: '$(Build.BuildId)'
 
 stages:

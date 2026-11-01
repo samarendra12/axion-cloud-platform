@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: axion-ui
-          image: mydemoregistry123.azurecr.io/axion-ui:latest
+          image: samaridhi1234.azurecr.io/axion-ui:latest
           ports:
             - containerPort: 3000
           resources:

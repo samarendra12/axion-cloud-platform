@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: axion-ingestion-service
-          image: mydemoregistry123.azurecr.io/axion-ingestion-service:latest
+          image: samaridhi1234.azurecr.io/axion-ingestion-service:latest
           ports:
             - containerPort: 8000
           resources:
